@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Project Name="LuaAlgorithm.luaprj" Cmd="" Arg="" Dir="" Toggle="false" >
+    <Filter Name="LuaAlgorithm" Toggle="false" >
+        <LuaFile RelativePath=".\BiSearch.lua" />
+        <LuaFile RelativePath=".\common.lua" />
+        <LuaFile RelativePath=".\Fibonacci.lua" />
+        <LuaFile RelativePath=".\Hano.lua" />
+        <LuaFile RelativePath=".\Main.lua" />
+        <Filter Name="AboutFindPath" Directory=".\AboutFindPath" Toggle="false" >
+            <LuaFile RelativePath=".\AboutFindPath\AStarFindPath.lua" />
+            <LuaFile RelativePath=".\AboutFindPath\AstarMine.lua" />
+            <LuaFile RelativePath=".\AboutFindPath\BFS.lua" />
+            <LuaFile RelativePath=".\AboutFindPath\Grid.lua" />
+            <LuaFile RelativePath=".\AboutFindPath\Node.lua" />
+        </Filter>
+        <Filter Name="AboutSort" Directory=".\AboutSort" Toggle="true" >
+            <LuaFile RelativePath=".\AboutSort\BubbleSort.lua" />
+            <LuaFile RelativePath=".\AboutSort\InsertionSort.lua" />
+            <LuaFile RelativePath=".\AboutSort\QuickSort.lua" />
+            <LuaFile RelativePath=".\AboutSort\quickSortTwo.lua" />
+            <LuaFile RelativePath=".\AboutSort\SelectedSort.lua" />
+        </Filter>
+        <Filter Name="Util" Directory=".\Util" Toggle="false" >
+            <LuaFile RelativePath=".\Util\Util.lua" />
+            <LuaFile RelativePath=".\Util\Queue.lua" />
+        </Filter>
+    </Filter>
+</Project>
