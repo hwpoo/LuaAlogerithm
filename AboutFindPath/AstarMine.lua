@@ -14,7 +14,7 @@ function M:init()
 	self:initGridMap(10,10)
 	self:initGridWall()
 	self:initStartNode(2,7)
-	self:initEndNode(7,7)
+	self:initEndNode(8,7)
 	self:initDirectionNode()
 	local t = self:findPath() or {}
 	return t
@@ -74,12 +74,13 @@ function M:findPath()
 		else		
 			local nextNodes = self:getNextNode(currentNode)
 			for _, v in ipairs(nextNodes) do
-				if not v.isWall and not self:isExistInList(v, self.openList) and not self:isExistInList(v, self.closeList) then
+				if not v.isWall and not self:isExistInList(v, self.closeList) then
 					v:setParent(currentNode)
 					v.g = self:get_G_Vale(currentNode, v) 
 					v.h = self:get_H_Value(v, self.endNode)
 					v.f = v.g + v.h	
 					table.insert(self.openList, v)
+					table.insert(self.closeList, v);
 				end			
 			end
 		end

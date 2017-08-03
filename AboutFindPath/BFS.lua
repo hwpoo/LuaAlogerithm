@@ -73,9 +73,10 @@ function M:bfs()
 				local _y = curNode.y+v[2]
 				if _x >= 1 and _x <= 6 and _y >= 1 and _y <= 8 then					
 					local _node = self.map[_x][_y]
-					if _node.value ~= 1 and not CheckInSet(_node, self.visitSet) and not CheckInSet(_node, self.queue.queue) then
+					if _node.value ~= 1 and not CheckInSet(_node, self.visitSet) then
 						_node.last = curNode
 						self.queue:push(_node)
+						table.insert(self.visitSet, _node)
 					end
 				end
 			end						
