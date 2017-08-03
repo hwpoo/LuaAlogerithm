@@ -13,6 +13,7 @@
             <LuaFile RelativePath=".\AboutFindPath\BFS.lua" />
             <LuaFile RelativePath=".\AboutFindPath\Grid.lua" />
             <LuaFile RelativePath=".\AboutFindPath\Node.lua" />
+            <LuaFile RelativePath=".\AboutFindPath\DFS.lua" />
         </Filter>
         <Filter Name="AboutSort" Directory=".\AboutSort" Toggle="true" >
             <LuaFile RelativePath=".\AboutSort\BubbleSort.lua" />
@@ -24,6 +25,7 @@
         <Filter Name="Util" Directory=".\Util" Toggle="false" >
             <LuaFile RelativePath=".\Util\Util.lua" />
             <LuaFile RelativePath=".\Util\Queue.lua" />
+            <LuaFile RelativePath=".\Util\Stack.lua" />
         </Filter>
     </Filter>
 </Project>

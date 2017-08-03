@@ -40,14 +40,14 @@ for _,v in ipairs(path) do
 end--]]
 
 
-local aStar = AstarMine.new();
+--[[local aStar = AstarMine.new();
 local path = aStar:init();
 print('path = '..#path);
 
 print('AstarMine is :');
 for _,v in ipairs(path) do
 	print('x = '..v.x..' y = '..v.y);
-end
+end--]]
 
 --[[quickSort.init()
 quickSort.sort(1, #quickSort.arr)
@@ -57,6 +57,9 @@ for _,v in ipairs(quickSort.arr) do
 end
 --]]
 
---[[local bfsInstance = BFS.new()
+--[[local bfsInstance = BFS.new() 
 bfsInstance:init()
 bfsInstance:bfs()--]]
+
+local dfsInstance = DFS.new()
+dfsInstance:init()

@@ -1,5 +1,6 @@
-local M = class('BFS')
-BFS = M
+local M = class('DFS')
+
+DFS = M
 
 local node = function (x, y)
 	local p = {}
@@ -32,16 +33,17 @@ local CheckInSet = function (node, set)
 	return false
 end
 function M:ctor(...)   
-    self.queue = {}
+    self.stack = {}
     self.visitSet = {}
 	self.map = {}
 	self.startPoint = {}
 	self.endPoint = {}
+	self.flag = 0  --标记是否找打路径
 	
 end 
 
 function M:init()
-    self.queue = Queue.new()
+    self.stack = Stack.new()
 	self.map = MAP(6,8)
 	for i = 1, 6 do
 		for j = 1, 8 do
@@ -49,36 +51,39 @@ function M:init()
 		end
 	end
 	self.startPoint = self.map[1][1]
-	self.endPoint = self.map[6][8]	
+	self.endPoint = self.map[6][8]
+	self:dfs()
 end
 
 
-function M:bfs()
-	self.queue:push(self.startPoint)	
-	while self.queue:getLength() > 0 do
-		local curNode = self.queue:pop()
-		table.insert(self.visitSet, curNode)
-		if curNode.x == self.endPoint.x and curNode.y == self.endPoint.y then
+function M:dfs()	
+	self.stack:push(self.startPoint)
+	table.insert(self.visitSet, self.startPoint)	
+
+	while self.stack:getLength() > 0 do
+		local curNode = self.stack:pop()
+		if curNode.x == self.endPoint.x and curNode.y == self.endPoint.y  then
 			print('Yes')
 			self:makePath(curNode)
 			return
-		else
-			for _, v in ipairs(moveDir) do
-				local _x = curNode.x+v[1]
-				local _y = curNode.y+v[2]
-				if _x >= 1 and _x <= 6 and _y >= 1 and _y <= 8 then					
-					local _node = self.map[_x][_y]
-					if _node.value ~= 1 and not CheckInSet(_node, self.visitSet) then
-						_node.last = curNode
-						self.queue:push(_node)
-						table.insert(self.visitSet, _node)
-					end
-				end
-			end						
 		end
-				
+		
+		for _,v in ipairs(moveDir) do
+			local _x = curNode.x+v[1]
+			local _y = curNode.y+v[2]
+			if _x >= 1 and _x <= 6 and _y >= 1 and _y <= 8 then					
+				local _node = self.map[_x][_y]
+				if _node.value ~= 1 and not CheckInSet(_node, self.visitSet) then									
+					_node.last = curNode
+					self.stack:push(_node)
+					table.insert(self.visitSet, _node)														
+				end
+			end
+		end
+	
 	end
-	print('NO')
+	
+	
 end
 
 function M:makePath(point)
